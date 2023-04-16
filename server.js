@@ -1,9 +1,9 @@
 const express = require("express");
+var path = require("path");
 
 const app = express();
-
 const http = require("http").createServer(app);
-
+app.use("/public", express.static(path.join(__dirname, "/public")));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
